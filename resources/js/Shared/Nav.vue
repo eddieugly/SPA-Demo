@@ -1,7 +1,7 @@
 <template>
     <div>
-        <nav class="mt-6">
-            <ul class="list-disc">
+        <nav>
+            <ul class="flex list-disc space-x-4 list-inside">
                 <li>
                     <NavLink href="/" :active="$page.component === 'Home'">
                         Home
