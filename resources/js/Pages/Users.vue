@@ -1,5 +1,4 @@
 <template lang="">
-    <Layout>
         <h1 class="text-4xl font-bold">
             Users
         </h1>
@@ -7,7 +6,6 @@
             <p>The current time is {{ time }}</p>
             <Link href='/users' class="text-blue-500 hover:underline" preserve-scroll>Refresh</Link>
         </div>
-    </Layout>
     
 </template>
 <script setup>
@@ -18,4 +16,9 @@ import { Link } from '@inertiajs/vue3';
 defineProps({
     time: String
 });
+</script>
+<script>
+export default {
+  layout: Layout
+};
 </script>
