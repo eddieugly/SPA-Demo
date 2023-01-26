@@ -9,9 +9,9 @@
     
 </template>
 <script setup>
-
 defineProps({
     time: String
 });
 </script>
+
 
