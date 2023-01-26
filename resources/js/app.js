@@ -10,8 +10,8 @@ createInertiaApp({
 
   
   },
-  resolve: name => {
-    let page = require(`./Pages/${name}.vue`).default;
+  resolve: async name => {
+    let page = (await import(`./Pages/${name}.vue`)).default;
     page.layout ??= Layout;
     return page;
   },
