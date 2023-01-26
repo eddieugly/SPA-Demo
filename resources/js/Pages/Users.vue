@@ -10,15 +10,8 @@
 </template>
 <script setup>
 
-import Layout from '../Shared/Layout';
-import { Link } from '@inertiajs/vue3';
-
 defineProps({
     time: String
 });
 </script>
-<script>
-export default {
-  layout: Layout
-};
-</script>
+
