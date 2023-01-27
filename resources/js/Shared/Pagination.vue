@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-6">
+  <div>
     <Component
         :is="link.url ? 'Link' : 'span'"
         v-for="link in links"
