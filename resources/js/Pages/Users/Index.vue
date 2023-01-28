@@ -18,7 +18,7 @@
         </th>
         <td class="px-6 py-4">
           <div class="flex justify-end gap-4">
-            <Link x-data="{ tooltip: 'Delete' }" :href="'/users/' + user.id + '/delete'">
+            <Link x-data="{ tooltip: 'Delete' }" method="delete" as="button" :href="'/users/' + user.id + '/destroy'">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -64,7 +64,7 @@
     
 </template>
 <script setup>
-import Pagination from '../Shared/Pagination';
+import Pagination from '../../Shared/Pagination';
 import { ref, watch } from 'vue';
 import { router } from '@inertiajs/vue3'
 
