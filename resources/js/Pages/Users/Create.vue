@@ -24,7 +24,7 @@
           class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           required
         />
-        <div v-if="errors.name" v-text="errors.name" class="text-red-500 text-xs mt-1"></div>
+        <div v-if="form.errors.name" v-text="form.errors.name" class="text-red-500 text-xs mt-1"></div>
       </div>
       <div class="mb-5">
         <label
@@ -42,7 +42,7 @@
           class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
           required
         />
-        <div v-if="errors.email" v-text="errors.email" class="text-red-500 text-xs mt-1"></div>
+        <div v-if="form.errors.email" v-text="form.errors.email" class="text-red-500 text-xs mt-1"></div>
       </div>
       <div class="mb-5">
         <label
@@ -58,13 +58,14 @@
           id="password"
           placeholder="Enter your password"
           class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-          required
+          
         />
-        <div v-if="errors.password" v-text="errors.password" class="text-red-500 text-xs mt-1"></div>
+        <div v-if="form.errors.password" v-text="form.errors.password" class="text-red-500 text-xs mt-1"></div>
       </div>
       <div>
         <button
           class="hover:bg-blue-600 rounded-md bg-blue-500 py-2 px-6 text-base font-semibold text-white outline-none"
+          :disabled="form.processing"
         >
           Submit
         </button>
@@ -75,21 +76,20 @@
 
 </template>
 <script setup>
-import { reactive } from 'vue';
-import { router } from '@inertiajs/vue3'
+import { useForm  } from '@inertiajs/vue3';
 
 defineProps({
   errors: Object
 });
 
-    let form = reactive({
+    let form = useForm({
         name: '',
         email: '',
         password: ''
     });
 
     let submit = () => {
-        router.post('/users', form);
+        form.post('/users');
     };
 </script>
 
