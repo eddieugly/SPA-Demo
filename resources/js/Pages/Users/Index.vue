@@ -1,8 +1,13 @@
 <template lang="">
         <div class="flex justify-between">
+            <div class="flex items-center">
             <h1 class="text-3xl">
             Users
             </h1>
+              <Link href="/users/create" @method="button" class="bg-blue-800 rounded-md text-white p-1 ml-5">
+                Create Users
+              </Link>
+            </div>
             <input class="border px-2 rounded-lg" v-model="search" type="text" name="" placeholder="Search...">
         </div>
         <!-- component -->
