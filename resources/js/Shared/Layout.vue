@@ -18,8 +18,9 @@
       </Div>
       <Nav />
     </header>
+    
   </section>
-
+  <flash-messages />
   <section class="p-6">
     <div class="max-w-3xl mx-auto">
       <slot />
@@ -27,14 +28,14 @@
   </section>
 
 
-
 </template>
 
 <script>
 import Nav from './Nav';
+import FlashMessages from './FlashMessages';
 import { Head } from '@inertiajs/vue3';
 export default {
-  components: { Nav, Head },
+  components: { Nav, Head, FlashMessages },
   computed: {
     username() {
       return this.$page.props.auth.user.username;
@@ -42,6 +43,9 @@ export default {
     pagename() {
       return this.$page.component;
     }
+  },
+  props: {
+    auth: Object,
   }
 };
 </script>

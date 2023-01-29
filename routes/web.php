@@ -52,7 +52,7 @@ Route::post('/users', function () {
     // Create User
     User::create($attributes);
 
-    return redirect('/users');
+    return redirect('/users')->with('success', 'User Created Successfully');
 });
 
 Route::delete('users/{id}/destroy', function ($id) {
@@ -60,7 +60,7 @@ Route::delete('users/{id}/destroy', function ($id) {
     $user = User::findOrFail($id);
     $user->destroy($id);
 
-    return back();
+    return redirect('/users')->with('success', 'User Deleted Successfully');;
 });
 
 Route::get('/settings', function () {
