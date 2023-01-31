@@ -1,8 +1,8 @@
 <template lang="">
 
-            <h1 class="text-3xl">
-            Create User
-            </h1>
+<h1 class="text-3xl">
+  Create User
+</h1>
 
             <!-- component -->
 <div class="flex items-center justify-center p-12">

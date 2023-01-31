@@ -4,7 +4,7 @@
             <h1 class="text-3xl">
             Users
             </h1>
-              <Link href="/users/create" @method="button" class="bg-blue-800 rounded-md text-white p-1 ml-5">
+              <Link v-if="can.createUser" href="/users/create" @method="button" class="bg-blue-800 rounded-md text-white p-1 ml-5">
                 Create Users
               </Link>
             </div>
@@ -40,7 +40,7 @@
                 />
               </svg>
             </Link>
-            <Link x-data="{ tooltip: 'Edite' }" :href="'/users/' + user.id + '/edit'">
+            <Link v-if="user.can.edit" x-data="{ tooltip: 'Edite' }" :href="'/users/' + user.id + '/edit'">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -77,7 +77,8 @@ import debounce from 'lodash/debounce';
 
 let props = defineProps({
     users: Object,
-    filters: Object
+    filters: Object,
+    can: Object
 });
 
 let search = ref(props.filters.search);
