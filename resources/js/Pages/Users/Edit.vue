@@ -67,7 +67,7 @@
           class="hover:bg-blue-600 rounded-md bg-blue-500 py-2 px-6 text-base font-semibold text-white outline-none"
           :disabled="form.processing"
         >
-          Submit
+          Update
         </button>
       </div>
     </form>
