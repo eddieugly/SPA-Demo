@@ -23,7 +23,7 @@
         </th>
         <td class="px-6 py-4">
           <div class="flex justify-end gap-4">
-            <Link x-data="{ tooltip: 'Delete' }" method="delete" as="button" :href="'/users/' + user.id + '/destroy'">
+            <Link v-if="user.can.delete" x-data="{ tooltip: 'Delete' }" method="delete" as="button" :href="'/users/' + user.id + '/destroy'">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -40,7 +40,7 @@
                 />
               </svg>
             </Link>
-            <Link v-if="user.can.edit" x-data="{ tooltip: 'Edite' }" :href="'/users/' + user.id + '/edit'">
+            <Link v-if="user.can.edit" x-data="{ tooltip: 'Edit' }" :href="'/users/' + user.id + '/edit'">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

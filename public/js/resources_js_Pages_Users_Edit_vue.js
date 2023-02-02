@@ -12,24 +12,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/vue3 */ "./node_modules/@inertiajs/vue3/dist/index.esm.js");
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   __name: 'Edit',
   props: {
-    errors: Object
+    errors: Object,
+    user: Object
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var props = __props;
     var form = (0,_inertiajs_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-      name: '',
-      email: '',
+      name: props.user.name,
+      email: props.user.email,
       password: ''
     });
     var submit = function submit() {
-      form.post('/users');
+      form.put('/users/' + props.user.id);
     };
     var __returned__ = {
+      get props() {
+        return props;
+      },
+      set props(v) {
+        v, _readOnlyError("props");
+      },
       get form() {
         return form;
       },
@@ -151,7 +160,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8 /* PROPS */, _hoisted_12)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "hover:bg-blue-600 rounded-md bg-blue-500 py-2 px-6 text-base font-semibold text-white outline-none",
     disabled: $setup.form.processing
-  }, " Submit ", 8 /* PROPS */, _hoisted_13)])], 32 /* HYDRATE_EVENTS */)])])], 64 /* STABLE_FRAGMENT */);
+  }, " Update ", 8 /* PROPS */, _hoisted_13)])], 32 /* HYDRATE_EVENTS */)])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

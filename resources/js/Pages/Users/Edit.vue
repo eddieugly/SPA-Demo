@@ -78,18 +78,19 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
 
-defineProps({
-  errors: Object
+let props = defineProps({
+  errors: Object,
+  user: Object
 });
 
 let form = useForm({
-  name: '',
-  email: '',
+  name: props.user.name,
+  email: props.user.email,
   password: ''
 });
 
 let submit = () => {
-  form.post('/users');
+  form.put('/users/' + props.user.id);
 };
 </script>
 
