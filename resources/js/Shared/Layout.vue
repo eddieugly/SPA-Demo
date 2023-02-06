@@ -7,6 +7,7 @@
     <meta name="description" content="Modern App with Laravel, InertiaJs, VueJs & TailWind" head-key="description">
   </Head>
   <section class="p-6 bg-gray-200">
+    <ToastList/>
     <header class="flex justify-between">
       <Div class="flex items-center">
         <h1 class="font-bold text-lg">
@@ -34,8 +35,9 @@
 import Nav from './Nav';
 import FlashMessages from './FlashMessages';
 import { Head } from '@inertiajs/vue3';
+import ToastList from './ToastList';
 export default {
-  components: { Nav, Head, FlashMessages },
+  components: { Nav, Head, FlashMessages, ToastList },
   computed: {
     username() {
       return this.$page.props.auth.user.username;

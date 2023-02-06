@@ -40,7 +40,7 @@
                 />
               </svg>
             </Link>
-            <Link v-if="user.can.edit" x-data="{ tooltip: 'Edit' }" :href="'/users/' + user.id + '/edit'">
+            <Link v-if="user.can.edit" x-data="{ tooltip: 'Edit' }" as="button" :href="'/users/' + user.id + '/edit'">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

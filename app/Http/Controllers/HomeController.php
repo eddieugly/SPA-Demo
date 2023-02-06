@@ -96,7 +96,7 @@ class HomeController extends Controller
 
         );
 
-        return redirect('/users')->with('success', 'User Updated Successfully');
+        return redirect('/users')->with('toast', 'User Updated Successfully');
     }
 
     public function settings(User $user)

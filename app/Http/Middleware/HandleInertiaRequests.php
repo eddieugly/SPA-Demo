@@ -42,7 +42,8 @@ class HandleInertiaRequests extends Middleware
                 'user' => [
                     'username' => Auth::user()->name
                 ]
-            ] : null
+            ] : null,
+            'toast' => session('toast')
         ]);
     }
 }
